@@ -1,0 +1,1558 @@
+% This is "sig-alternate.tex" V2.0 May 2012
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+%\CopyrightYear{2007}
+%\crdata{0-12345-67-8/90/12}
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+%\documentclass{sig-alternate}
+\documentclass[times]{smrauth}
+
+\usepackage{subcaption}
+\usepackage{moreverb}
+\usepackage{adjustbox}
+
+\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
+
+\newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\usepackage{rotating}
+
+\usepackage[section]{placeins}
+
+\newcommand{\red}[1]{ {\color{red}#1} }
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+%\usepackage{Sweave}
+
+%\usepackage{epstopdf}
+%\usepackage{auto-pst-pdf}
+%\usepackage{subfigure}
+
+\begin{document}
+
+%\CopyrightYear{2014}
+%\crdata{978-1-4503-2774-9/14/09}
+
+%
+% --- Author Metadata here ---
+% --- End of Author Metadata ---
+
+\title{The Relationship between Evolutionary Coupling and Defects in Large Industrial Software}
+
+\author{Serkan Kirbas\affil{1}\textsuperscript{,}\affil{2}\textsuperscript{,}\corrauth, Bora Caglayan\affil{3}, Tracy Hall\affil{2}, Steve Counsell\affil{2}, David Bowes\affil{4}, \break Alper Sen\affil{1}, Ayse Bener\affil{3}}
+%, Rasim Mahmutogullari\affil{5}
+
+\address{\affilnum{1}Computer Engineering Department, Bogazici University, Istanbul, Turkey\break
+\affilnum{2}Department of Computer Science, Brunel University London, London, United Kingdom\break
+%\affilnum{3}Mathematics, Ryerson University, Toronto, Ontario, Canada\break
+\affilnum{3}Data Science Laboratory, Ryerson University, Toronto, Ontario, Canada\break
+\affilnum{4}School of Computer Science, University of Hertfordshire, Hatfield, United Kingdom}
+%\affilnum{6}Architecture and Security Management Department, Garanti Technology, Istanbul, Turkey\break
+
+\corraddr{Computer Engineering Department, Bogazici University, Istanbul, Turkey. E-mail: serkan.kirbas@boun.edu.tr}
+
+%\subtitle{[Extended Abstract]
+%\titlenote{A full version of this paper is available as
+%\textit{Author's Guide to Preparing ACM SIG Proceedings Using
+%\LaTeX$2_\epsilon$\ and BibTeX} at
+%\texttt{www.acm.org/eaddress.htm}}}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+%\numberofauthors{6} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+
+%\author{
+
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+
+%\alignauthor
+%AAAAA\\
+%       \affaddr{Department of Computer Engineering}\\
+%       \affaddr{Bogazici University}\\
+%       \affaddr{Istanbul, Turkey}\\
+%%       \email{\{serkan.kirbas, alper.sen\}@boun.edu.tr}
+%% 3rd. author
+%\alignauthor BBBBB\\
+%	   \affaddr{*Computer Science Dept.}\\
+%       \affaddr{Brunel University London}\\
+%       \affaddr{London, UK}\\
+%\and  % use '\and' if you need 'another row' of author names
+%% 5th. author
+%\alignauthor CCCCC\\
+%       \affaddr{Computer Science Dept.}\\
+%       \affaddr{University of Hertfordshire}\\
+%       \affaddr{London, UK}\\
+%}
+
+
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+
+%% 2nd. author
+%\and
+
+%\maketitle
+\begin{abstract}
+
+\textit{Background:} Evolutionary coupling (EC) is defined as the implicit relationship between two or more software artifacts that are frequently changed together. Changing software is widely reported to be defect-prone. \textit{Objective:} In this study, we investigate the effect of EC on the defect-proneness of large industrial software systems and explain why the effects vary. \textit{Method:} We analysed two large industrial systems: a legacy financial system and a modern telecommunications system. We collected historical data for 7 years from 5 different software repositories containing 176 thousand files. We applied correlation and regression analysis to explore the relationship between EC and software defects and we analysed defect types, size and process metrics to explain different effects of EC on defects through correlation. \textit{Results:} Our results indicate that there is generally a positive correlation between EC and defects, but the correlation strength varies. EC is less likely to have an effect on software defects for parts of the software with fewer files and where fewer developers contributed. EC measures showed higher correlation with some types of defects (based on root causes) such as code implementation and acceptance criteria. \textit{Conclusion:} Although EC measures may be useful to explain defects, the explanatory power of such measures depends on defect types, size and process metrics. 
+
+%EC provides an efficient way to explore related locations in the code, often scattered across the application or even across applications in a software ecosystem.
+
+%We therefore suggest firstly, that researchers should report size, process metrics and defect types for their EC studies; secondly, that practitioners should analyse their defect types and consider them when choosing metrics for analysing and predicting defects.
+
+\end{abstract}
+
+% A category with the (minimum) three required fields
+%\category{H.4}{Information Systems Applications}{Miscellaneous}
+
+%A category including the fourth, optional field follows...
+%\category{D.2.8}{Software Engineering}{Metrics/Measurement}
+
+%\terms{Measurement, languages}
+
+\keywords{Evolutionary coupling, Mining software repositories, Industrial software, Software defects, Measurement, Legacy software}	
+
+\maketitle
+
+	\section{Introduction}
+
+The aim of this paper is to investigate the impact of evolutionary coupling on software defects. Evolutionary coupling\footnote{Evolutionary coupling is also known as change coupling or logical coupling.} is the relationship between parts of software systems which are frequently changed concurrently during the evolution of a system. Our investigation is based on the analysis of evolutionary coupling in two large industrial systems.
+
+Software  constantly changes for many reasons \cite{lehman1980programs} \cite{bennett2000software} \cite{mens2008introduction} \cite{DBLP:journals/ercim/JV12}. Studies have shown that changing software may be a defect-prone activity \cite{sliwerski2005changes} \cite{moser2008comparative} \cite{mostFreqChangesRef1} \cite{graves2000predicting}. Code that is changed most frequently is likely to be most defect-prone \cite{nagappan2005use} \cite{mostFreqChangesRef1} \cite{mostFreqChangesRef2} \cite{mostFreqChangesRef3}. Evolutionary coupling could explain some of this defect-proneness since when code with high evolutionary coupling is changed, a high number of changes must be made to related parts of the system. The locations of these related changes may be scattered within the application or even across applications in a software ecosystem. Correctly making related changes across these locations is likely to be challenging. Developers may miss some locations which should have been co-changed and this may cause unforeseen ripple effects and problems.
+
+Evolutionary coupling information is generally extracted from the commit history of version control systems. It is based on the assumption that artifacts committed together are logically coupled. This makes EC relatively simple to calculate compared to other types of coupling. For example, structural \cite{briand1999unified} and semantic \cite{poshyvanyk2009using} coupling are both measured based on the static and text analysis of source code. Often this source code is difficult to obtain from closed source developers. Dynamic coupling \cite{arisholm2004dynamic} analyses execution traces and so requires the software to be executed. EC requires access to only the version control system and is thus a relatively easy way to measure coupling, particularly for industrial closed source systems.
+
+Evolutionary coupling has previously been shown to indicate architectural and design problems. Gall et al. \cite{gall1998detection} \cite{gall2003cvs} showed that EC can discover design flaws such as God classes or Spaghetti code, without analysing the source code. Gall et al.'s results also identified architectural weaknesses such as poorly designed inheritance hierarchies and blurred interfaces between modules and submodules. Breu and Zimmermann \cite{breu2006mining} showed that EC information and data mining techniques could detect cross-cutting concerns in software systems. Such cross-cutting concerns emerging over time may contain functionality which does not align with its architecture. Furthermore, Eaddy et al. \cite{eaddy2008crosscutting} argued that cross-cutting concerns were harder to implement and change consistently because multiple (possibly unrelated) locations in the code have to be found and updated simultaneously. Their study suggested that increased cross-cutting concerns may actually cause or contribute to defects. Our own previous study of EC in a banking system \cite{Kirbas:2014:EEC:2652524.2652577} suggested that EC does impact defects.
+
+%We follow up our previous results \cite{Kirbas:2014:EEC:2652524.2652577} by analysing EC in more systems and extending the analysis of those systems to explain the different findings we find. 
+
+Conversely, Graves et al. \cite{graves2000predicting} showed that module level EC measures were a poor predictor of defect-proneness. Knab et al. \cite{knab2006predicting} also found that evolutionary coupling did not predict defects in the Mozilla project; no studies exist to explain these contradictory findings. Furthermore, evolutionary coupling in large commercial systems has rarely been empirically investigated. Most previous studies are based on the analysis of open source systems.
+
+In this study, we analysed the correlation between EC measures and the number of defects and defect density in two large software systems in industrial software development environments. Correlation analysis is performed separately for each module\footnote{A module is part of a software system. A software system is composed of one or more independently developed modules. Similar functionality is contained within the same module and a module is generally composed of many source files. In the systems analysed in this study, modules are also part of subsystems. There is a one-to-many relationship between between subsystems and modules. A module can be part of only one subsystem and a subsystem may have many modules. But subsystems are not covered in the scope of this work.}. We also built logistic regression models. In this study, multivariate regression analysis is used to explore the relationship between evolutionary coupling (independent variable) and defects (dependent variable) to understand how helpful EC measures are in defect analysis compared to other process metrics (we build correlation models rather than prediction models). We also analysed the relationship between evolutionary coupling and defect types. Our research questions are as follows:
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+\item \textbf{(RQ1) What is the relationship between evolutionary coupling and software defects?}
+%\item \textbf{What is the effect of using evolutionary coupling on software defect prediction models?}
+%\item \textbf{GodClass  : GodClass \cite{Lanza:2005:OMP:1076853} }
+\end{itemize}
+
+The results of our study showed that there was, in general, a relationship between evolutionary coupling and software defects in the software maintenance / evolution phase of the industrial software systems under study. We detected a positive correlation between EC measures and defects. Compared to other process measures such as the number of commits and the number of developers, EC measures seem to contain additional, sometimes important, information about defects: for every additional EC, the module is 8\% more likely to be defective. However, correlation strength varied across modules and in some modules EC and defects were not correlated. Based on these findings, we added the following research question to our study:
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+\item \textbf{(RQ2) What factors explain why the relationship between evolutionary coupling and software defects is different for different modules?}
+%\item \textbf{What are the differences between correlation-detected modules and the others?}
+%\item \textbf{Can different defect types of modules be responsible for this variation?}
+
+%\item \textbf{How different is the effect of evolutionary coupling on different software defect types?}
+%\item \textbf{Which defect types are more correlated with evolutionary coupling?}
+\end{itemize}
+
+Modules which were small in terms of Lines of Code (LOC) and developer numbers tended to be less correlated with evolutionary coupling. Fewer defects due to evolutionary coupling seem to occur in small modules. Evolutionary coupling also appeared to be more highly correlated with some types of defects such as code implementation, acceptance criteria and analysis problems. Overall, regression analysis showed that evolutionary coupling may be useful for explaining defects in industrial systems. 
+
+We make the following contributions in this paper. Firstly, we analyse large commercial systems which have rarely been empirically studied to understand the relation between evolutionary coupling and defects. Secondly, we show that the effect of evolutionary coupling on defects varies depending on the module. Thirdly, the explanatory power of evolutionary coupling measures varies depending on defect types and module features such as size and developer activity.
+
+This paper is organised as follows: In the next section, we summarise related work. In Section 3, we present our methodology including measures, data extraction and analysis methods. Section 4 shows the results of applying our methodology to two industrial systems. The discussions and threats to validity of this study are then addressed in sections 5 and 6, respectively. Finally, in Section 7, we summarise and present our conclusions.
+
+%We apply data mining techniques on the data collected from various software repositories, and we use a visualisation tool.
+%
+%Programming languages used in different application types of the ecosystem: 
+%PL1,COBOL (Mainframe), Java, JavaScript (Java), C\#(.NET), Java(Android), Objective-C(iOS).
+%
+%Distribution of file types committed for each ecosystem \ref{file_types_per_ecosystem}.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.5in]{file_types_per_ecosystem.PNG}
+%\caption{File Types per Ecosystem}
+%\label{file_types_per_ecosystem}	
+%\end{figure}
+
+\section{Related Work}
+
+%This article is an extended version of the conference paper published in ESEM 2014. Compared to the original version, the updates and enhancements made in this article are thorough. To be specific, this version (1) includes more description of research method, i.e. design, data collection, and implementation; (2) extends the case study by adding a modern industrial software system from a different domain; (3) adds another research question on reasons for different effects being observed for different modules; (4) reports insights about the likely types of defects in the system; (5) updates the related work with the latest empirical studies; and (6) provides more in-depth discussion about the findings from this study.
+
+\subsection{Evolutionary Coupling}
+
+Evolutionary coupling was first identified in 1997 by Ball et al. \cite{ball1997if}. Early studies on EC focused on the relationship between EC and architectural problems with EC used as an indicator of architectural weaknesses and modularity problems. Classes that were frequently changed together during the evolution of a system were presented visually using EC information by Ball et al. \cite{ball1997if}. Clusters of classes were identified according to EC measures. Ball et al. showed that classes belonging to the same cluster were semantically related. EC among different clusters was used as an indicator of ineffective class partitioning. Gall et al. analysed EC at a module-level and reported that EC provides useful insights into system architecture \cite{gall1998detection}. They identified potential structural shortcomings and detected modules and programs which should undergo restructuring or even reengineering. Another study by Gall et al. analysed  evolutionary coupling at a class level on an industrial software system \cite{gall2003cvs}. This study was important since it demonstrated that EC could be used to identify architectural weaknesses such as poorly designed interfaces and inheritance hierarchies. Pinzger et al. showed that candidate modules for refactoring could be detected by showing ECs between modules on Kiviat diagrams \cite{pinzger2005visualizing}. Beyer and Hassan explored EC data in the calculation of the distance between two files in a version control system and displayed results as a series of animated panels \cite{beyer2006animated}. They showed how the structure of a software system decayed or remained stable over time.
+
+Besides detecting architectural problems, EC has also been used to predict possible co-changes and to recommend such co-changes to developers. In a study by Ying et al., an approach using data mining techniques was developed to recommend related source code parts to software developers with assigned modification requests (MRs) \cite{ying2004predicting}. Applying the approach to open source projects revealed important dependencies. A study by Zimmermann et al. presented a technique which predicted the parts of source code likely to change given the already changed parts of source code (at file, class, property, method levels) \cite{zimmermann2005mining}. Association rule mining was used to detect evolutionary couplings. 
+
+Several previous studies have used EC in the detection of cross-cutting concerns scattered across software systems. Breu et al. \cite{breu2006mining} leverage EC information to mine aspect candidates (identifying cross-cutting concerns). Eaddy et al. \cite{eaddy2008crosscutting} argued that cross-cutting concerns were harder to implement and change consistently because multiple (possibly unrelated) locations in the code have to be found and updated simultaneously. Their study suggested that increased cross-cutting concerns may cause or even contribute to defects. Adams et al. \cite{Adams:2010:ICC:1806799.1806846} developed an aspect mining technique based on co-addition or co-removal of dependencies on program entities over time. They suggest that detailed knowledge about cross-cutting concerns in the source code is crucial for the cost-effective maintenance and successful evolution of large systems. 
+
+\subsection{Relationship between Evolutionary Coupling and Defects}
+
+EC measures have also been used in defect prediction studies. These studies are related to our first research question (RQ1). First, we focus on the studies, which reported a relation between EC and defects. Steff and Russo created sequential commit graphs of evolutionary coupled classes \cite{steff2012co}. They showed that the graphs could be used for defect prediction. A study by Tantithamthavorn et al. proposed improvements to existing  defect localisation methods by utilising EC information \cite{tantithamthavorn2013using}. The proposed method was applied and verified on two open source projects (Eclipse SWT and Android ZXing).
+
+D'Ambros et al. \cite{d2009relationship} analysed three open source software systems and detected correlation between EC and software defects. This was the first study focusing explicitly on the relationship between EC and software defects, which corresponds to our first research question (RQ1). They found a positive correlation between EC and defects. Furthermore, they reported that defects with a high severity exhibited a correlation with EC. This study considered only evolutionary coupling between classes within a project. Another study reported by Kouroshfar concluded that cross-subsystem EC measures are more related to defects than within-subsystem EC \cite{kouroshfar2013studying}. Kouroshfar's findings are related to our second research question (RQ2), as Kouroshfar proposed different kinds of EC (between sub-systems vs. within sub-systems) as a factor affecting the relationship between defects and EC.
+
+Other studies using EC metrics suggest that EC does not contribute to defects and is not useful for identifying defects. These studies could not find any relationship between EC and defects, which is related to our RQ1. In a study conducted by Graves et al., various statistical models were developed to assess which features of the revision history of a module could be used for defect prediction \cite{graves2000predicting}. Results  from study showed that prediction performance of the models using EC measures were lower compared with other models. Another study by Knab et al. found that evolutionary coupling measures did not give good results for predicting defects \cite{knab2006predicting}. In that study, the ability of evolutionary coupling to predict defect density was tested. In our previous studies of EC \cite{Kirbas:2014:EEC:2652524.2652577} \cite{DBLP:conf/uyms/KirbasSCB14} we examined the effect of evolutionary coupling on software defects for an industrial legacy banking system. For some modules we observed significant correlation between EC and defect measures, whereas for others no relation was detected.
+
+The previous studies on EC focused on open source projects. Also, most of these studies did not investigate large projects. Our study is different in the sense that we investigate industrial projects, which have very different software development processes and culture than the open source projects. Moreover, the size of the projects we analysed are different to existing studies. For example, the size of the projects studied by D'Ambros et al. \cite{d2009relationship} were between 1K and 3K (number of classes). The size of the projects that we studied were 20K and 150K (as number of files). Large industrial systems have rarely been empirically studied to understand the relationship between evolutionary coupling and defects. This is an important contribution of our work on existing knowledge of EC. 
+
+% Dambros NOT normalized metrics - our study Normalized metrics.
+
+% An existing study performed by D’Ambros et al. (mentioned in the paper) investigates the correlation between evolutionary coupling and defects. They considered evolutionary coupling between classes. When D’Ambros et al. performed such a fine grained (class level) study on evolutionary coupling, it is not clear whether it was important to study file level evolutionary coupling. Possibly, the industrial context? Is that all? How the findings are different than D’Ambros et al.’s findings.
+
+In contrast to previous studies, we also show that the relationship between EC and defects varies for different modules even in the same system. We provide the distribution of numerical values for EC - defect relationship as histograms. This introduces a more realistic and probabilistic model for the EC - defect relationship and can be also used to explain the contradictory results reported by different studies. Furthermore, we attempt to explain factors affecting the relationship between evolutionary coupling measures and defects, which has not been explicitly addressed by previous studies.
+
+\newpage
+
+\section{Methodology}
+
+This section explains the setting and data sources that we used as well as how we extracted and analysed the data.
+
+\subsection{Study Context}
+
+We performed our study on two large industrial systems. One of the systems was a large financial legacy system that had evolved for over 25 years to support the back-end business processes of a large financial institution (henceforward known as 'Company 1'). Much of the code was written in PL/I and COBOL, but there were also files written in JCL (Job Control Language), a scripting language used on mainframes to develop a batch job. The system consisted of 20 subsystems and 274 modules. The company started using a version control system in 2009. We analysed all subsystems and modules between 2009 and 2013 and the total size of the system was 87 million LOC, consisting of 150K individual files. The applications analysed in this study are back-end banking applications. Company 1 uses a 'modified' waterfall model for software development. 
+
+The other system studied was a large telecommunications system written in Java (henceforward known as 'Company 2'). The company had used a version control system (SVN) since 2006; we analysed 4 subsystems and 11 modules between 2006 and 2013. Company 2 uses an agile methodology as well as Test-Driven Development (TDD). The applications analysed in this study are web applications. Detailed information about the systems under study is given in Table \ref{systeminfo1}.
+
+\begin{table}[!h]
+\caption{Summary about Industrial Systems under Study} 
+\label {systeminfo1} 
+\begin{center}
+\begin{tabular}{ |c|c|c| }
+  \hline
+%  \multicolumn{3}{|c|}{ & Company 1 & Company 2 } \\
+  & Company 1 & Company 2 \\
+  \hline
+  Programming Languages & Cobol,PL/I,Jcl & Java \\
+  Domain & Finance & Telecommunications \\
+  Versioning System & CA SCM & SVN \\
+  Defect Tracking System & Developed in-house & JIRA \\
+  Number of Software Sub-Systems & 20 & 4 \\
+  Number of Software Modules & 274 & 11 \\
+  Total Number of Developers & 460 & 25 \\
+  Total Software Size (LOC) & 87 M & 310 K \\
+  Total Number of Files & 150 K & 26 K \\
+  Total Number of File Versions & 192 K & 180 K \\
+  Total Number of Commits & 50 K & 24 K \\
+  Analysis Period & 2009-2013 & 2006-2013 \\
+  Percentage of Files Changed & \%11 & \%15 \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Data Collection}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=5.7in]{approach_overview.PNG}
+\caption{Data Collection Overview}
+\label{data_overview}	
+\end{figure*}
+
+We collected source code data from SVN and CA SCM version control systems, defect data from JIRA and in-house developed defect repositories and the link between source code and defects from CMDB at Company 1. 
+
+Figure \ref{data_overview} presents an overview of our approach to mine the data. We developed adapters for the five different data sources. The output of adapters containing the data retrieved from the data source for the specified period are stored in a database.  For source code data, we fetch all versions created during the specified period in the version control system and store them in the database. We applied static code analysis on each file revision providing method- and program-level static metrics (discussed in the next sub-section). Commit information such as the developer id that created the version, date of creation and the related problem/request/project id were available from the source code repository. We applied filtering to remove large commits that may have contained logically irrelevant changes. Commits containing more than 30 files were ignored and were not considered while calculating EC measures.
+%as well as the maintainer's id  and the related bug/enhancement id
+
+In CMDB, each software product is defined as a separate configuration item (CI) and each change is recorded and related to the corresponding CI. In our study, we collected all related changes (either  defect fixing or enhancement) on the software product analysed over the defined period. In CMDB and JIRA, two different sources for a change were defined: Problem or Request. We could therefore distinguish between bug-fixing and enhancement.    
+
+
+%\vspace{-5mm}
+\subsection{Data Sources}
+%We now describe each one of the repositories used in this study.
+%\cite{EffectiveMSR} 
+
+\subsubsection{Code Repositories:}
+Source code repositories are primarily used for storing and managing changes to source code artifacts. The full history of changes, the owner of the change, date of the change and even the corresponding requirement or project task can be extracted.  The tool used at Company 1 for managing the source code repository was a product of Computer Associates (CA), called CA Software Change Manager (CA SCM) \cite{CASCM:2013:Online}.  CA SCM provides change management in addition to its version control functionality. A developer must make changes in CA SCM in a change package, similar to the notion of ``change set'' in other SCM tools. A package groups and keeps all related changes together, corresponding to the same  defect fix or enhancement. The versioning system used at Company 2 was Apache Subversion (SVN) \cite{SVN:2015:Online}. SVN is a popular versioning tool and is used by nearly half of all open source projects according to openhub.net \footnote{The Open Hub tracks more than 650,000 free and open source software (FOSS) repositories and generates several statistics on the hosted source.}.
+
+\subsubsection{Defect Repositories: Company 1 (Finance):}
+
+We mined the defect repository to collect defect data reported. The defect repository at Company 1 was developed in-house by the company.
+
+Mapping between Defects and Source Code: We followed different approaches for the two companies for finding a mapping between defects and source code. For Company 1, we used the Configuration Management Database (CMDB) for this purpose. For both companies, we assumed that files involved in a  defect  fix contained the defect. 
+
+Configuration Management Database (CMDB): Many companies store information related to components of their information system in a CMDB which contains data describing the following entities \cite{CMDBfederated}:
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+\item managed resources such as computer systems and application software,
+\item process artifacts such as incident, problem and change records,
+\item relationships among managed resources and process artifacts.
+\end{itemize}
+
+In our study, we used the CMDB system at Company 1 to extract data about the relationship between Modification Requests (MR) and source code. The CMDB system was developed in-house by the company.
+
+\subsubsection{Defect Repository - Company 2 (Telecommunications):}
+
+Company 2 used JIRA \cite{JIRA:2015:Online}, a proprietary  defect tracking product, developed by Atlassian.
+
+Mapping between Defects and Source Code: For Company 2, we used the defect IDs provided in the SVN commit comments by developers and the revision numbers provided in JIRA issues. For both companies, we assumed that files involved in a  defect  fix contained the defect. The percentage of fixed bugs linked to version control is changed between 73\% and 79\% yearly. The  defect fixes which do not require source code change and version control commit such as database related fixes are also included in that number. The mappings from SVN commit to defect and from JIRA issue to SVN commit were generally consistent.  
+ 
+
+\subsection{Descriptions of Measures}
+
+Table \ref{SummaryofMeasures} lists all the measures used in this study. The following sections will provide the details of these measures. 
+
+\begin{table}[!h]
+\caption{Summary of Measures used in the Study} 
+\label {SummaryofMeasures} 
+\begin{center}
+\begin{tabular}{ |c|c|c| }
+  \hline
+%  \multicolumn{3}{|c|}{ & Company 1 & Company 2 } \\
+  &  & Description \\
+  \hline
+  NoECF & File level & The total number of Evolutionary Coupled Files of a file \\
+  NoECFMR & File level & Sum of the number of Evolutionary Coupled Files of a file  \\
+  LOC & File level & Lines of Code, Size measure \\
+  NoD & File level & Number of defects reported for a file \\
+  DD & File level & Defect Density \\
+NoCommits & File level &  Number of Commits - Process Metric for comparison purposes\\
+NoDevs & File level & Number of Developers - Process Metric for comparison purposes\\
+  
+  
+  TNF & Module level & Total Number of Files in a Module \\
+  TNEFC & Module level & Total Number of Evolutionary File Couplings in a Module \\
+  TNFR & Module level & Total Number of File Revisions in a Module \\
+  TNDVLP & Module level & Total Number of DeVeLoPers contributing to a Module \\
+  TND & Module level & Total Number of Defects of a Module \\
+  TFSC & Module level & Total File Size Change in LOC for a Module\\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsubsection{Evolutionary Coupling Measures:}
+
+%Evolutionary coupling is defined as the implicit relationship %between two or more software artifacts that are changed 
+%together during the evolution of a software system. The more 
+%that software artifacts are changed together, the stronger 
+%evolutionary coupling becomes.
+
+%\UTF{00DC}zerinde fikir birli\UTF{011F}ine var\UTF{0131}lm\UTF{0131}\UTF{015F} evrimsel ba\UTF{011F}la\UTF{015F}\UTF{0131}m metrikleri bulunmamakla birlikte literat\UTF{00FC}rdeki \UTF{00E7}al\UTF{0131}\UTF{015F}malarda kullan\UTF{0131}lm\UTF{0131}\UTF{015F} baz\UTF{0131} metrikler mevcuttur. \UTF{00C7}al\UTF{0131}\UTF{015F}mam\UTF{0131}zda bu b\UTF{00F6}l\UTF{00FC}mde detaylar\UTF{0131} verilen 2 adet evrimsel ba\UTF{011F}la\UTF{015F}\UTF{0131}m metri\UTF{011F}i kullan\UTF{0131}lm\UTF{0131}\UTF{015F}t\UTF{0131}r.
+
+In the companies under study, any changes made to the source code were made based on modification requests (MR). A MR represents a conceptual software change which includes modification of one or more source code files by one or more software developers. These changes can be defect fixes or enhancements. We used an MR-based approach to calculate evolutionary coupling and formalise our approach as follows.
+
+Let $MR$ denote the set of modification requests, $mr$ denote a specific modification request in $MR$, and $f$ denote a source code file changed in the scope of $mr$. Based on these definitions, we calculate evolutionary coupled files and evolutionary coupling measures as follows:
+
+The set of Evolutionary Coupled Files of a file $f$:
+ \[
+  SECF(f) = \left\{ f_{i} \vert mr \in MR  \wedge f_{i} \in mr \wedge f \in mr \wedge f_{i} \ne f  \right\} 
+ \]
+
+The total number of Evolutionary Coupled Files of a file $f$:
+ \[
+  NoECF(f) = \left\vert  SECF(f)  \right\vert  
+ \]
+ 
+Set of Evolutionary Coupled Files of a file $f$ in the scope of a modification request $mr$: 
+ \[
+  SECFMR(f, mr) = \left\{ f_{i} \vert f_{i} \in mr \wedge f \in mr \wedge f_{i} \ne f  \right\} 
+ \]
+
+Sum of the number of Evolutionary Coupled Files of a file $f$ for all $mr$'s in $MR$:
+ 
+ \[
+  NoECFMR(f) = \sum\limits_{i=0}^n \left\vert  SECFMR(f, mr_{i})  \right\vert  
+ \]
+
+
+% Set of Evolutionary Couplings of a File based on Revisions
+% \[
+%  SECFBR(f) = \left\{ v_{i} \vert f_{i} \in SECF(f) \wedge v_{i} revisionOf f_{i}  \right\} 
+% \]
+%
+
+% \[
+%  SECMR(f) = \left\{ mr \in MR \vert f \in mr \wedge f_{i} \in SECF(f) \wedge f_{i} \in mr  \right\} 
+% \]
+%
+% \[
+%  \Delta CC(w_i) = \sum\limits_{j=0}^m ( CC(t_{i},c_{ij}) - CC(t_{i-1},c_{ij}) )
+% \]
+
+\textit{NoECF} counts a coupling between two files as one even if they are coupled in the scope of multiple MRs. \textit{NoECFMR} is different from \textit{NoECF} in this respect. If two files are co-changed in the scope of five MRs, \textit{NoECFMR} is calculated as five, whereas \textit{NoECF} is calculated as one. \textit{NoECFMR} considers the number of MRs, in which two files are coupled. We aim to use \textit{NoECFMR} alongside \textit{NoECF} to consider multiple MR co-changes, which may lead to stronger evolutionary coupling.
+
+The following three issues were considered in the calculation of evolutionary coupling measures: 1) the level at which measures are taken, 2) the approach for grouping files, and 3) the boundary for finding coupled files. We calculated EC measures at file level; we chose file level, since defects are mapped to files in the companies under study. One approach for grouping file changes is using commit transactions of versioning systems that are the unique commit operations of a developer. In this approach it is assumed that developers commit logically coupled files within a transaction. The system at Company 1 was a legacy system and developers rarely committed more than one file in one transaction. Therefore, we found that a transaction-based approach was not appropriate to detect EC. We followed an MR-based approach and grouped the file changes according to the associated MR numbers \cite{graves2000predicting}. In our approach, file changes spanning multiple transactions were grouped together if they were associated with the same MR. The third issue considered for EC calculation was the boundary for finding coupled files. We chose module level to find coupled files that resided in the same module. In other words, we consider EC only within module boundaries. Alternative module boundaries could be subsystem or system level, which considers cross module couplings. In this study, we ignore any cross-module evolutionary couplings. 
+
+%The measures we define concern the coupling of a class with the entire system.
+
+\subsubsection{Size Measures:}
+
+Lines of Code (LOC) was chosen for size measurement and this is also used for normalising derived measures. We also used LOC to detect outliers in the data. To this end, we identified files whose size was greater than 10K (0.4\% of all files). LOC is also used to investigate file size as a possible confounding factor. We check for correlation between LOC and other measures. Using defect density as normalised measure in our study mitigates the risk of size as a possible confounding factor.
+
+%\begin{itemize}
+%\renewcommand{\labelitemi}{$\bullet$}
+%\item \textbf{LOC :  }
+%%\item \textbf{GodClass  : GodClass \cite{Lanza:2005:OMP:1076853} }
+%\end{itemize}
+
+%\subsubsection{Defect Measures}
+
+We use the following measures for defects: Number of  defects reported for a file (NoD) and Defect Density (DD). We employ the following formula for calculating defect density:
+
+ \[
+  DD = NoD / LOC 
+ \]
+ 
+%\begin{itemize}
+%\renewcommand{\labelitemi}{$\bullet$}
+%%\item NOCh : Number of Check-ins
+%\item \textbf{NoF  : Number of  defects reported for a file}
+%\item \textbf{DD : Defect Density}
+%\end{itemize}
+
+\subsubsection{Defect Types:}
+
+We used the defect types listed in the Appendix (Table \ref{tab:DefectTypeList}) and provide their descriptions. 
+This defect type classification was used by Company 2 and each defect reported was tagged by one or more defect types (the defect repository stored the defect type data for each defect). The defect types in Table \ref{tab:DefectTypeList} are ordered based on the defect type codes used by the company.
+
+%We analyse the distribution of defect types for Company 2. 
+
+
+
+%We propose two novel measures to check the utilisation of version control system for using EC. 
+
+% \[
+%  NumberOfFilesObservedInAtLeastOneCommitTransaction(n) = set tan\UTF{0131}m\UTF{0131}%
+% \]
+% \[
+%  Measure1(n) = NumberOfFilesObservedInAtLeastOneCommitTransaction(n) / n
+% \]
+% \[
+%  MaxPossibleBinaryRelations(n) = C(n,2) = (n * (n-1)) / 2  
+% \]
+% \[
+%  Measure2(n) = NumberOfUniqueECs(n) / MaxPossibleBinaryRelations(n)
+% \]
+ 
+\subsection{Analysis Method}
+
+\subsubsection{Analysis Method for Answering RQ1: }
+
+%Pearson's correlation analysis measures the degree of association between two variables, assuming a normal distribution of the values. Though this test might not necessarily fail when the data is not normally distributed, Pearson's test only looks for a linear correlation. It might indicate no correlation, even if the data is correlated in a non-linear manner. 
+
+Spearman correlation analysis was used to find the relationship between EC and defect measures. Since the data is not normally distributed, we apply Spearman's rank correlation analysis. Spearman's rank correlation analysis is a non-parametric test of correlation and assesses how well a monotonic function describes the association between variables. This is done by ranking the sample data separately for each variable. We used the Shapiro-Wilk test \cite{shapiro1965analysis} to check for normality of the data. The null-hypothesis of this test is that the population is normally distributed; if the p-value is less than the chosen alpha level (0.05), then the null hypothesis is rejected and there is evidence that the data tested is not from a normally distributed population. Razali et al. \cite{razali2011power} report that Shapiro-Wilk is the most powerful normality test. 
+
+We set the p-value (significance level) for Spearman correlation analysis to 0.05. If the data from the study results in a p-value of less than 0.05, we conclude that the correlation is significant. The correlation coefficient or correlation strength is represented by $\rho$ ($rho$). It expresses the relationship between evolutionary coupling and software defects by a value between -1 and 1. $\rho$ ($rho$) values of 1 or -1 indicate perfect positive or negative correlation, respectively. Values close to 0 indicate absence of correlation between measures. We considered $\rho$ ($rho$) values less than 0.1 to be trivial, between 0.1 and 0.3 as low, between 0.3 and 0.5 as moderate, between 0.5 and 0.7 as high, between 0.7 and 0.9 as very high, and above 0.9 as almost perfect \cite{HopkinsCorrelation} \cite{OOMetricsToPredict2012}.
+
+Correlation analysis was applied on each module separately to obtain $rho$, $p$ and $StdErr$ values for each. We used histograms to summarise the correlation results and the SPSS \cite{SPSS:2013:Online} tool was used for the statistical analysis.
+
+After correlation analysis was performed, we applied multivariate logistic regression and multicollinearity analysis with basic process metrics such as number of commits, number of developers and prior number of defects as well as EC metrics. With this analysis, we are aiming to identify the relationship between metrics, as well as metrics that do not add any new knowledge about defects.  
+
+The following describes the steps taken to build a logistic regression model for the evolutionary coupling metrics, process metrics and the presence or absence of defects. The first step is to binarise the defect count such that a data-point is labelled defective if the defect count is greater than 0. Then we build a logistic regression model using all terms and no interactions.  Having built the model we test for multicollinearity to find any independent variables which are correlated. %Metrics identified as being correlated we remove them the from the model. 
+Then we build a model which includes interaction terms and identify terms which are correlated.  Finally, we build an interaction model without correlated terms and apply stepwise reduction to remove terms which are not significant.
+
+%There are in general two main uses of regression analysis \cite{allison1999multiple}: prediction and causal analysis, we focus on casual analysis. 
+
+By using regression models, we aim to determine whether a particular independent variable really affects the dependent variable, and to estimate the magnitude of that effect, if any.
+
+%We created and evaluated linear regression models in which the independent variables were evolutionary coupling measures and the dependent variables were the number of defects and defect density. To evaluate the explanatory power of the regression models, we used the $R^2$ coefficient; this is the ratio of the regression sum of squares to the total sum of squares. $R^2$ ranges from 0 to 1; the higher its value, the more variability is explained by the model. Another indicator of the explanatory power used is the adjusted $R^2$. This takes into account the degrees of freedom of the independent variables and the sample population.
+
+
+%We also applied logistic regression to explain the defect-proneness of files. Logistic regression is widely used to predict binary and categorical dependent variables. 
+
+%EC measures were used as the independent variables and defect-proneness as the binary dependent variable (equals 1 if NoD is greater than 0, otherwise equals 0). In logistic regression analysis, there is no consensus measure to assess goodness-of-fit. We used the likelihood ratio $R^2$ for this purpose:
+
+
+%Collinearity might exist among the EC metrics that we used in the study; the existence of collinearity violates the assumption of independence among the independent variables. Therefore, 
+We diagnose collinearity through variance inflation factor (VIF) analysis \cite{montgomery2012introduction}. We used 2.5 as the cut-off value for the simple model and 10 for the interaction model where collinearity naturally occurs by default. If a VIF value is greater than the cut-off value, the metric with the largest VIF is removed and the model re-built until all VIF values are less than the cut-off value.
+
+\subsubsection{Analysis Method for Answering RQ2: }
+
+We used box plots to determine differences between the modules where significant correlation was or was not observed. We drew box plots for the following measures:
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+\item TNF: 	 Total Number of Files in a Module
+\item TNEFC: Total Number of Evolutionary File Couplings in a Module
+\item TNFR:  Total Number of File Revisions in a Module
+\item TNDVLP: Total Number of Developers contributing to a Module
+\item TND:   Total Number of Defects of a Module
+\item TFSC:  Total File Size Change in LOC for a Module
+\end{itemize}
+
+These measures were chosen based on availability and their power to reflect different attributes of modules characterising size, developer activity and defects. Many studies in the literature suggest that size is generally an important factor. Since EC is dependent on developer activity, we have also added it as a factor. To check whether the difference is statistically significant, we apply a t-test if data is parametric and a Mann-Whitney test if non-parametric. We again take a significance level of 0.05.
+
+To check the role of defect types, we repeated the correlation analysis between EC and defect measures, but this time for each defect type. We aimed to find defect types that were likely to be related to evolutionary coupling and we checked the distribution of defect types for each module.    
+
+%We also build and evaluate regression models calculated by applying Principal Component Analysis (PCA). We use PCA to eliminate the problem of multicollinearity among the independent variables and inflated variance. PCs that account for a cumulative sample variance of at least 95\% are selected and used in model building.
+
+%To compute the evolutionary coupling we first extracted change sets from the version control system. We grouped together daily file changes if the project name and the committer name matched.
+%
+%Then, we applied association rule mining, similarly to the work by Ying et al. \cite{ying2004predicting} and by Zimmermann et al. \cite{zimmermann2005mining} (using the Weka package arule and, more specifically, the Apriori \cite{agrawal1993mining} algorithm) to detect frequent itemsets in cochanges (i.e., groups of projects frequently changing together).
+%
+%The rules are ranked in terms of (i) support of each itemset X, $supp(X)$ (i.e. the proportion of change sets that contain the learned itemset), and (ii) confidence of a rule $X \rightarrow Y$ , defined as $supp(X \rightarrow Y )/supp(X)$ (i.e., the fraction of change sets containing X where Y also appears). We set the confidence threshold to 0.8 (0.01), the support threshold to 0.005, and with maximum 400 rules.
+%The rationale was that (i) the learned rules must be precise enough (hence, the high confidence threshold) and (ii) the itemsets may appear in a limited percentage of the change sets (hence, the low support threshold). 
+%
+%Using these thresholds, we assumed that there is a evolutionary coupling between two projects if they appeared in a frequent itemset.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Company1_histogram_rho_WithNormalCurve.png}
+\caption{Company 1: Histogram of Spearman $rho$ values for Correlation between EC (NoECF measure) and Number of  defects}
+\label{Company1_histogram_rho}	
+\end{figure}
+
+
+\section{Results}
+
+\subsection{RQ1: What is the relationship between evolutionary coupling and software defects? Correlation Analysis Results}
+
+For 161 out of 274 (59\%) software modules analysed at Company 1 and 6 out of 11 at Company 2, we observed significant correlation ($p$ $<$ 0.05) between the number of defects (NoD) and EC measures using Spearman's analysis. A Shapiro-Wilk test indicated that data distribution was not normal (p = 0.0 $<$ 0.05) and so consequently, we used Spearman's analysis. For 32 out of 113 modules at Company 1 for which no significant correlation was observed, the number of commit values were either zero or low values ($<=10$). EC measures need a lead time period (Zimmerman et al. \cite{zimmermann2005mining}) and sufficient version control activity (prerequisite for EC measurement). Otherwise, they may not be useful. For Company 2, the modules for which no significant correlation is observed were all small in size and the number of defects were also low for these small modules.
+
+
+The distribution of $rho$ values of these 161 modules at Company 1 can be seen in the histogram in Figure \ref{Company1_histogram_rho}\footnote{This figure only shows the histogram of Spearman $rho$ values for correlation between NoECF and NoD. The histogram for correlation between NoECFMR and NoD is not shown in the main text as it is very similar to the former one. However, it can be seen in Figure \ref{Company1_histogram_rho_noecfmr} in the Appendix.}. The correlation observed was generally low and moderate. For 21 modules, high correlation was observed. Figures \ref{Company2_spearman_histogram_rho_ecsum} and \ref{Company2_spearman_histogram_rho_ecnof} show the distribution of $rho$ values on the histogram for Company 2. The correlation values do not seem to be high but while interpreting these results we should consider that we are only analysing one factor among many factors, which can cause defects or have a relationship with defects. From this perspective, having 59\% of modules with significant correlation and low to moderate correlation strength is a very important result.
+
+
+
+If we compare the analysis results of the two companies, we observe that Company 2 has relatively fewer modules with high correlation values. The practices such as agile and TDD used by Company 2 may have affected this result. Such practices may lead to lower coupling in systems. This result may also be due to the different architectures used by these two systems. Company 2 used the Model-View-Controller (MVC) architectural pattern in its projects, which divides a software application into three interconnected parts, so as to separate internal representations of information from the ways that information is presented to, or accepted from, the user. Whereas the architecture in the Company 1 systems is more \textit{ad hoc} since these legacy systems have been evolved over a long period. 
+
+% PEARSON REMOVED
+%We also applied Pearson correlation analysis on the same data. For 52 out of 161 modules at Company 1 in which significant correlation was observed by Spearman's analysis, we do not observe significant correlation by Pearson's analysis. On the other hand, for 7 modules in which no significant correlation was observed by Spearman, we do observe significant correlation by Pearson. At Company 2, Pearson analysis results were not different in terms of significance, but they were higher in terms of correlation strength.
+%Figures \ref{Company2_pearson_histogram_rho_ecsum} and \ref{Company2_pearson_histogram_rho_ecnof} show the distribution of $rho$ values calculated by Pearson analysis for Company 2. The correlation observed was high and very high for more than half of the modules.
+
+\begin{figure}
+\begin{subfigure}[h]{0.50\textwidth}
+  \includegraphics[width=\textwidth]{Company2_Correlation_Histograms_Spearman_ECSum.png}
+  \caption{Correlation between NoECF and NoD}
+  \label{Company2_spearman_histogram_rho_ecsum}
+\end{subfigure}%
+\begin{subfigure}[h]{0.50\textwidth}
+  \includegraphics[width=\textwidth]{Company2_Correlation_Histograms_Spearman_ECNoF.png}
+  \caption{Correlation between NoECFMR and NoD}
+  \label{Company2_spearman_histogram_rho_ecnof}
+\end{subfigure}
+\caption{Company 2: Histogram of Spearman $rho$ values for Correlation between EC measures and NoD}
+\label{fig:Company2_spearman_histogram_rho}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Company1_histogram_rho_dd_WithNormalCurve.png}
+\caption{Company 1: Histogram of Spearman $rho$ values for Correlation between EC (NoECF measure) and Defect Density}
+\label{Company1_histogram_rho_dd}	
+\end{figure}
+
+% PEARSON REMOVED
+%\begin{figure}
+%\begin{subfigure}[h]{0.50\textwidth}
+%  \includegraphics[width=\textwidth]{Company2_Correlation_Histograms_Pearson_ECSum.png}
+%  \caption{Correlation between NoECFMR and NoD}
+%  \label{Company2_pearson_histogram_rho_ecsum}
+%\end{subfigure}%
+%\begin{subfigure}[h]{0.50\textwidth}
+%  \includegraphics[width=\textwidth]{Company2_Correlation_Histograms_Pearson_ECNoF.png}
+%  \caption{Correlation between NoECF and NoD}
+%  \label{Company2_pearson_histogram_rho_ecnof}
+%\end{subfigure}
+%\caption{Company 2: Histogram of Pearson $rho$ values for Correlation between EC measures and NoD}
+%\label{fig:Company2_pearson_histogram_rho}
+%\end{figure}
+
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale=0.5]{Company2_Correlation_Histograms_Spearman_ECSum.png}
+%\caption{Company 2: Histogram of Spearman $rho$ values for Correlation between NoECF and NoD}
+%\label{Company2_spearman_histogram_rho_ecsum}	
+%\end{figure}
+%
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale=0.5]{Company2_Correlation_Histograms_Spearman_ECNoF.png}
+%\caption{Company 2: Histogram of Spearman $rho$ values for Correlation between NoECFMR and NoD}
+%\label{Company2_spearman_histogram_rho_ecnof}	
+%\end{figure}
+
+We also applied Spearman's analysis for EC measures and defect density (DD). For 147 out of 274 software modules analysed at Company 1, we observed significant correlation ($p$ $<$ 0.05) between DD and EC measures by using Spearman's analysis. The distribution of $rho$ values can be seen in the histogram in Figure \ref{Company1_histogram_rho_dd}. Although there are slightly fewer modules identified as significant compared with the previous analysis, the distribution of $rho$ values shown in the two histograms shows great similarity. In keeping with the previous analysis results, the correlation observed was generally low and moderate; for a small number of modules, high correlation was observed. The results for Company 2 were similar to the previous analysis results.
+
+%\subsubsection{Comparison to Other Process Measures}
+
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale=0.5]{Company2_Correlation_Histograms_Pearson_ECSum.png}
+%\caption{Company 2: Histogram of Pearson $rho$ values for Correlation between NoECFMR and NoD}
+%\label{Company2_pearson_histogram_rho_ecsum}	
+%\end{figure}
+%
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale=0.5]{Company2_Correlation_Histograms_Pearson_ECNoF.png}
+%\caption{Company 2: Histogram of Pearson $rho$ values for Correlation between NoECF and NoD}
+%\label{Company2_pearson_histogram_rho_ecnof}	
+%\end{figure}
+
+\subsection{RQ1: What is the relationship between evolutionary coupling and software defects? Regression Analysis Results}
+
+%We applied correlation analysis for basic process metrics such as number of commits, number of developers and prior number of defects. 
+
+%For fewer modules compared to EC correlation results, we detected a significant correlation between process measures and defects. For 103 out of 274 software modules, we detected a significant correlation between control process measures and defects. In other words, for 58 software modules we did not detect significant correlation between control process measures and defects. When we compared these correlation analysis results with EC correlation results, the knowledge embedded in EC measures was unique for 58 software modules to explain defects. 
+
+After correlation analysis, we applied multivariate logistic regression to build models which indicate files which are likely to be defective.
+First, we built a logistic regression model using all terms and no interactions (Table \ref{tab:modelwithallterms}).   
+
+
+% latex table generated in R 3.0.2 by xtable 1.7-1 package
+% Mon Jun  6 14:11:26 2016
+\begin{table}[tbp]
+\centering
+\caption{First Model with all terms and no interaction} 
+\label{tab:modelwithallterms}
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & z value & Pr($>$ $|$z$|$) \\ 
+  \hline
+(Intercept) & -2.9369 & 0.0122 & -240.71 & 0.0000 \\ 
+  NoECFMR & 0.0287 & 0.0048 & 5.95 & 0.0000 \\ 
+  NoECF & 0.0274 & 0.0056 & 4.88 & 0.0000 \\ 
+  NoCommits & 0.0213 & 0.0059 & 3.63 & 0.0003 \\ 
+  NoDevs & 0.8340 & 0.0250 & 33.41 & 0.0000 \\ 
+   \hline
+\end{tabular}
+\end{table}% latex table generated in R 3.0.2 by xtable 1.7-1 package
+%\FloatBarrier
+
+Having built the model we test for multicollinearity to find any independent variables which are correlated (Table \ref{tab:multicolinearitytest1}). We assess the variance inflation factors (VIF).  A VIF $>$ 2.5 is considered problematic requiring one or more variables to be removed. `NoECFMR' and `NoECF' are identified as being correlated and therefore we remove `NoECFMR' from the model (Table \ref{tab:modelwithoutsum}). 
+%%%%%DO we need the following?
+Multicollinearity analysis results and odds ratio (OR)\footnote{An Odds Ratio greater than 1.0 indicates that an increase in the variable will increase the propensity for the file to be defective.} effect sizes after removing `NoECFMR' are also provided in Table \ref{tab:multicolinearitywithoutsum} respectively. 
+
+
+% Mon Jun  6 14:11:26 2016
+\begin{table}[tbp]
+\centering
+\caption{Test for multicolinearity} 
+\label{tab:multicolinearitytest1}
+\begin{tabular}{rr}
+  \hline
+ & VIF\\ 
+  \hline
+NoECFMR & \red{21.29} \\ 
+  NoECF & \red{21.12} \\ 
+  NoCommits & 1.87 \\ 
+  NoDevs & 2.10 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+%We build a model which includes interaction terms and identify terms which are correlated in Table \ref{tab:modelafterstepwisereduction}.
+
+
+%% Mon Jun  6 14:11:33 2016
+%\begin{table}[tbp]
+%\centering
+%\caption{Model after stepwise reduction does not remove NoECFMR or NoECF} 
+%\label{tab:modelafterstepwisereduction}
+%\begin{tabular}{rrrrr}
+%  \hline
+% & Estimate & Std. Error & z value & Pr($>$ $|$z$|$) \\ 
+%  \hline
+%(Intercept) & -2.9369 & 0.0122 & -240.71 & 0.0000 \\ 
+%  NoECFMR & 0.0287 & 0.0048 & 5.95 & 0.0000 \\ 
+%  NoECF & 0.0274 & 0.0056 & 4.88 & 0.0000 \\ 
+%  NoCommits & 0.0213 & 0.0059 & 3.63 & 0.0003 \\ 
+%  NoDevs & 0.8340 & 0.0250 & 33.41 & 0.0000 \\ 
+%   \hline
+%\end{tabular}
+%\end{table}% latex table generated in R 3.0.2 by xtable 1.7-1 package
+%% Mon Jun  6 14:11:33 2016
+
+
+ 
+% Mon Jun  6 14:11:41 2016
+\begin{table}[tbp]
+\centering
+\caption{Model for all IVs without NoECFMR} 
+\label{tab:modelwithoutsum}
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & z value & Pr($>$ $|$z$|$) \\ 
+  \hline
+(Intercept) & -2.9432 & 0.0122 & -241.67 & 0.0000 \\ 
+  NoECF & 0.0601 & 0.0014 & 44.02 & 0.0000 \\ 
+  NoCommits & 0.0247 & 0.0057 & 4.33 & 0.0000 \\ 
+  NoDevs & 0.8362 & 0.0247 & 33.88 & 0.0000 \\ 
+   \hline
+\end{tabular}
+\end{table}% latex table generated in R 3.0.2 by xtable 1.7-1 package
+%\FloatBarrier
+
+
+% Mon Jun  6 14:11:41 2016
+\begin{table}[tbp]
+\centering
+\caption{Multicolinearity and Odds Ratio effect size (without NoECFMR)} 
+\label{tab:multicolinearitywithoutsum}
+\begin{tabular}{rr}
+  \hline
+ & VIF \\ 
+  \hline
+NoECF & 1.29 \\ 
+  NoCommits & 1.85 \\ 
+  NoDevs & 2.09 \\ 
+   \hline
+\end{tabular}
+\quad
+\quad
+\quad
+\begin{tabular}{rr}
+  \hline
+ & OR \\ 
+  \hline
+(Intercept) & 0.05 \\ 
+  NoECF & 1.06 \\ 
+  NoCommits & 1.03 \\ 
+  NoDevs & 2.31 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+%% Mon Jun  6 14:11:45 2016
+%\begin{table}[tbp]
+%\centering
+%\caption{Model after stepwise reduction} 
+%\label{tab:ModelAfterStepwiseReduction}
+%\begin{tabular}{rrrrr}
+%  \hline
+% & Estimate & Std. Error & z value & Pr($>$ $|$z$|$) \\ 
+%  \hline
+%(Intercept) & -2.9432 & 0.0122 & -241.67 & 0.0000 \\ 
+%  NoECF & 0.0601 & 0.0014 & 44.02 & 0.0000 \\ 
+%  NoCommits & 0.0247 & 0.0057 & 4.33 & 0.0000 \\ 
+%  NoDevs & 0.8362 & 0.0247 & 33.88 & 0.0000 \\ 
+%   \hline
+%\end{tabular}
+%\end{table}% latex table generated in R 3.0.2 by xtable 1.7-1 package
+
+
+
+Having identified individual variables which make a significant contribution to the logistic regression model, we built a model which includes interaction terms (Table \ref{tab:testingWithinteractionterms}) and identify terms which are correlated (Table \ref{tab:collinearityvif}). Again, VIF values are highly likely to be correlated because we are using interaction terms, therefore $VIF > 10$ is considered problematic (Table \ref{tab:collinearityvif}). Odds ratio effect sizes for this model are provided in Table \ref{tab:oddsratiowithinteractionterms}.
+
+Next we built an interaction model without correlated terms and applied stepwise reduction to remove terms which were not significant (Table \ref{tBest}). The multicollinearity analysis results and odds ratio effect sizes for this model are also provided in Table \ref{tab:MulticolinearityFinal}, respectively. This analysis shows how unique the knowledge embedded in EC measures is compared to the other process metrics.
+
+The final model includes the following significant terms: NoECF, NoCommits, NoDevs and the interaction of  NoECF with NoDevs.  All terms apart from the interaction term are greater than 1.0 showing that when the independent variable increases, the propensity of a file to be defective increases.  The interaction term (NoECF:NoDevs 0.98) is slightly less than 1.0  indicating that as both increase together the linear model is adjusted to marginally decrease the increasing propensity of the model to predict a file as being defective.
+
+To check the relationship between evolutionary coupling measures and defect-proneness of files from a different perspective, we drew box plots for evolutionary coupling measures of files with and without defects. A separate box plot for each module was created and for some of the modules these can be seen in Figure \ref{boxplots} in the Appendix (1: represents files with defects, 2: represents files without any defects). 
+
+%We applied correlation analysis. We compared these correlation analysis results with EC correlation results to show how unique the knowledge embedded in EC measures is.
+
+%Regression models were built by using only evolutionary coupling measures as independent variables. We calculated the variance inflation factor (VIF) values for EC metrics to check their collinearity. VIF values for both EC metrics were less than 5. Therefore, we concluded that these metrics did not suffer from collinearity and both metrics were included in the regression models. Statistical significance of the regression models was also tested by using an F-test. All the regression models built were significant at the 95\% level ($p < 0.05$).
+
+%It can be concluded that evolutionary coupling measures are useful to explain defects, but only for the modules listed at the top of the sorted list.
+
+%We do not aim to create defect prediction models  with all available metrics. We only investigate the relation between EC and defects. We only use EC measures as independent variables. Therefore R2 values will not be as high as defect prediction results in the literature. EC will explain only part of the defects in the system.
+
+
+% Mon Jun  6 14:11:48 2016
+\begin{table}[tbp]
+\centering
+\caption{Model with Interaction Terms} 
+\label{tab:testingWithinteractionterms}
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & z value & Pr($>$ $|$z$|$) \\ 
+  \hline
+(Intercept) & -3.0191 & 0.0130 & -232.56 & 0.0000 \\ 
+  NoECF & 0.0817 & 0.0018 & 46.07 & 0.0000 \\ 
+  NoCommits & 0.0888 & 0.0116 & 7.63 & 0.0000 \\ 
+  NoDevs & 1.2002 & 0.0310 & 38.74 & 0.0000 \\ 
+  NoECF:NoCommits & -0.0021 & 0.0007 & -3.13 & 0.0017 \\ 
+  NoECF:NoDevs & -0.0356 & 0.0019 & -18.35 & 0.0000 \\ 
+  NoCommits:NoDevs & -0.0576 & 0.0064 & -8.94 & 0.0000 \\ 
+  NoECF:NoCommits:NoDevs & 0.0024 & 0.0003 & 7.40 & 0.0000 \\ 
+   \hline
+\end{tabular}
+\end{table}% latex table generated in R 3.0.2 by xtable 1.7-1 package
+% Mon Jun  6 14:57:25 2016
+
+%\FloatBarrier
+
+\begin{table}[tbp]
+\centering
+\caption{Multicolinearity (with Interaction Terms)} 
+\label{tab:collinearityvif}
+\begin{tabular}{rr}
+  \hline
+ & VIF\\ 
+  \hline
+NoECF & 2.52 \\ 
+  NoCommits & 8.20 \\ 
+  NoDevs & 3.79 \\ 
+  \red{NoECF:NoCommits} & 10.81 \\ 
+  NoECF:NoDevs & 7.34 \\ 
+  \red{NoCommits:NoDevs} & 10.21 \\ 
+  \red{NoECF:NoCommits:NoDevs} & 14.59 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[tbp]
+\centering
+\caption{Odds Ratio effect size (with Interaction Terms)} 
+\label{tab:oddsratiowithinteractionterms}
+\begin{tabular}{rrrr}
+  \hline
+ & OR & 2.5 \% & 97.5 \% \\ 
+  \hline
+(Intercept) & 0.05 & 0.05 & 0.05 \\ 
+  NoECF & 1.09 & 1.08 & 1.09 \\ 
+  NoCommits & 1.09 & 1.07 & 1.12 \\ 
+  NoDevs & 3.32 & 3.12 & 3.53 \\ 
+  NoECF:NoCommits & 1.00 & 1.00 & 1.00 \\ 
+  NoECF:NoDevs & 0.96 & 0.96 & 0.97 \\ 
+  NoCommits:NoDevs & 0.94 & 0.93 & 0.96 \\ 
+  NoECF:NoCommits:NoDevs & 1.00 & 1.00 & 1.00 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+%\clearpage
+
+
+
+% FINAL MODEL
+
+\begin{table}[tbp]
+\centering
+\caption{Reduced Model with Interaction Terms with no collinearity} 
+\label{tBest}
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & z value & Pr($>$ $|$z$|$) \\ 
+  \hline
+(Intercept) & -2.9878 & 0.0126 & -236.95 & 0.0000 \\ 
+  NoECF & 0.0747 & 0.0015 & 48.92 & 0.0000 \\ 
+  NoCommits & 0.0324 & 0.0054 & 5.95 & 0.0000 \\ 
+  NoDevs & 0.9823 & 0.0248 & 39.63 & 0.0000 \\ 
+  NoECF:NoDevs & -0.0184 & 0.0009 & -20.27 & 0.0000 \\ 
+   \hline
+\end{tabular}
+\end{table}% latex table generated in R 3.0.2 by xtable 1.7-1 package
+
+
+% Mon Jun  6 14:58:34 2016
+\begin{table}[tbp]
+\centering
+\caption{Multicolinearity and Odds Ratio effect size (final model) with confidence limits} 
+\label{tab:MulticolinearityFinal}
+\begin{tabular}{rr}
+  \hline
+ & VIF \\ 
+  \hline
+NoECF & 1.89 \\ 
+  NoCommits & 1.94 \\ 
+  NoDevs & 2.39 \\ 
+  NoECF:NoDevs & 2.40 \\ 
+   \hline
+\end{tabular}
+\quad
+\quad
+\quad
+\begin{tabular}{rrrr}
+  \hline
+ & OR & 2.5 \% & 97.5 \% \\ 
+  \hline
+(Intercept) & 0.05 & 0.05 & 0.05 \\ 
+  NoECF & 1.08 & 1.07 & 1.08 \\ 
+  NoCommits & 1.03 & 1.02 & 1.04 \\ 
+  NoDevs & 2.67 & 2.54 & 2.80 \\ 
+  NoECF:NoDevs & 0.98 & 0.98 & 0.98 \\ 
+   \hline
+\end{tabular}
+\end{table}% Mon Jun  6 14:58:41 2016
+ 
+
+
+
+%\vspace{-2mm}
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale=0.8]{R2Values_For_CorrelatedModulesOrdered.png}
+%\caption{Company 1: Linear Regression $R^2$ vs. Modules Ordered by Correlation Strength (measures used: NoECF and NoECFMR)}
+%\label{LinRegR2ValuesCompany1}	
+%\end{figure}
+
+%\begin{figure}
+%\begin{subfigure}[b]{0.50\textwidth}
+%  \includegraphics[width=\textwidth]{Company2_LinerReg_RSquare.png}
+%  \caption{Linear Regression $R^2$}
+%  \label{LinRegR2ValuesCompany2}
+%\end{subfigure}%
+%\begin{subfigure}[b]{0.50\textwidth}
+%  \includegraphics[width=\textwidth]{Company2_LogisticReg_RSquare.png}
+%  \caption{Logistic Regression Pseudo $R^2$}
+%  \label{pseudoR2ValuesCompany2}
+%\end{subfigure}
+%\caption{Company 2: Regression $R^2$ vs. Modules Ordered by Correlation Strength (measures used: NoECF and NoECFMR)}
+%\label{fig:Company2_logistic_regression}
+%\end{figure}
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale=0.55]{Company2_LinerReg_RSquare.png}
+%\caption{Company 2: Linear Regression $R^2$ vs. Modules Ordered by Correlation Strength }
+%\label{LinRegR2ValuesCompany2}	
+%\end{figure}
+
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale=0.8]{PseudoR2Values_For_CorrelatedModulesOrdered.png}
+%\caption{Company 1: Logistic Regression Pseudo $R^2$ vs. Modules Ordered by Correlation Strength (measures used: NoECF and NoECFMR)}
+%\label{pseudoR2ValuesCompany1}	
+%\end{figure}
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale=0.55]{Company2_LogisticReg_RSquare.png}
+%\caption{Company 2: Logistic Regression Pseudo $R^2$ vs. Modules Ordered by Correlation Strength }
+%\label{pseudoR2ValuesCompany2}	
+%\end{figure}
+
+
+
+%The results of logistic regression analysis using only evolutionary coupling measures as the independent variable can be seen in Figure \ref{pseudoR2ValuesCompany1} for Company 1 and in Figure \ref{pseudoR2ValuesCompany2} for Company 2. The horizontal axis represents the modules sorted according to Spearman $rho$ values from largest to smallest. As is the case with linear regression, we also observe a decreasing trend of ${R^2}_L$ values. ${R^2}_L$ values start from 1 and decrease to 0. In both figures, there are some exceptional points, which do not fit into the decreasing trend. These may be explained by other factors such as module characteristics and defect types that can have effect on the relationship between EC and defects. These are analysed in more detail in the following subsections answering RQ2. However, when compared to the linear regression results, evolutionary coupling measures are useful for explaining defects by a logistic regression model. 
+
+We also performed manual analysis for some highly evolutionary coupled files and their defects to show how software defects were influenced by evolutionary coupling. In some defect instances, a highly evolutionary coupled file was changed but this change was not accumulated to all coupled files correctly. This was the root cause of the fault. There was no structural coupling between these files. We also observed similar instances but across different modules managed by different teams. A change made in a module was not accumulated to the evolutionary coupled modules. For some defect instances, a previous modification to a highly evolutionary coupled file caused some unanticipated behaviour in the coupled files. 
+
+%When we add evolutionary coupling measures to the linear regression models, the $R^2$ value did not change. In other words, the explanatory power of defect models built with evolutionary coupling measures was the same as the explanative power of defect models built without evolutionary coupling measures. The values of adjusted $R^2$ also tend to remain comparable to $R^2$.
+%by only using the results for the regression models built using the following variables: (1) evolutionary coupling measures, (2) code churn count, (3) LOC. 
+%
+%We also applied PCA and calculated top Principal Components (PCs). $R^2$ of linear regression models built with the selected PCs (accounting for \%97 of cumulative sample variance) is calculated as 0.01. Furthermore, evolutionary coupling measures are not involved in the top PCs selected.
+
+
+%In statistics, the residual sum of squares (RSS) is the sum of squares of residuals. It is a measure of the discrepancy between the data and an estimation model. A small RSS indicates a tight fit of the model to the data.
+%
+%Linear Regression with raw data
+% with normalisation
+%
+%Residual sum of squares: 22.38
+%Variance score: 0.02
+%
+%PCA
+%
+%Residual sum of squares: 22.49
+%Variance score: 0.01
+
+%\subsection{Version Control Utilisation Results}
+
+
+
+\subsection{RQ2: What factors explain why the relationship between evolutionary coupling and software defects is different for different modules? Box Plot Analysis Results}
+
+Figures \ref{fig:Cmpny1BoxPlots}, \ref{fig:Cmpny2BoxPlots} and \ref{fig:Cmpny1BoxPlots2} show the box plots of module-level measures for modules where correlation is and is not detected. The \textit{y}-axis of box plots is represented on a logarithmic scale and the range of measurement values in Figure \ref{fig:Cmpny2BoxPlots} (for Company 2) is perfectly separated. Although there is overlap in the box plots for Company 1, the difference is statistically significant ($<0.05$) for both companies according to the Mann-Whitney test. All modules for which correlation is observed have high values for Total Number of Files, Total Number of Evolutionary File Couplings and Total Number of File Revisions. On the other hand, we did not observe a perfect separation of ranges for measures such as Total Number of Developers contributed, Total Number of Defects and Total File Size Change in LOC for both companies. However, the difference is still statistically significant ($<0.05$) according to the Mann-Whitney test. We also checked how balanced the set of modules were in terms of defects with and without correlation and they were mostly unbalanced. There are generally more files without defects than those with defects. We also analysed the relationship between module size and Spearman $rho$ values for the correlation between EC (NoECF measure) and number of  defects. The results can be seen in Figure \ref{size_vs_correlation} and Table \ref{tab:size_vs_correlation} in the Appendix. The correlation analysis showed a significant negative correlation between module size and $rho$ value. 
+
+%These results can be interpreted as follows: evolutionary coupling is less likely to have an effect on software defects for modules with fewer files and where fewer developers contributed. This may be explained by fewer defects being caused by evolutionary coupling in small modules and suggests that developers should aim to keep module sizes small. 
+
+\begin{figure}
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=\textwidth]{Company1_BoxPlots1_NofFiles.png}
+  \caption{Total Number of Files}
+  \label{fig:Cmpny1fig1}
+\end{subfigure}%
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=\textwidth]{Company1_BoxPlots2_NofFileCouplings.png}
+  \caption{Total Number of File Couplings}
+  \label{fig:Cmpny1fig2}
+\end{subfigure}
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=\textwidth]{Company1_BoxPlots3_NofFileRevisions.png}
+  \caption{Total Number of File Revisions}
+  \label{fig:Cmpny1fig3}
+\end{subfigure}
+\caption{Company 1: Box plots of different measures for modules in which correlation between EC and Defects detected (Yes) and not detected (No)}
+\label{fig:Cmpny1BoxPlots}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=\textwidth]{Company2_BoxPlots1_NofFiles.png}
+  \caption{Total Number of Files}
+  \label{fig:Cmpny2fig1}
+\end{subfigure}%
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=\textwidth]{Company2_BoxPlots2_NofFileCouplings.png}
+  \caption{Total Number of File Couplings}
+  \label{fig:Cmpny2fig2}
+\end{subfigure}
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=\textwidth]{Company2_BoxPlots3_NofFileRevisions.png}
+  \caption{Total Number of File Revisions}
+  \label{fig:Cmpny2fig3}
+\end{subfigure}
+\caption{Company 2: Box plots of different measures for modules in which correlation between EC and Defects detected (Yes) and not detected (No)}
+\label{fig:Cmpny2BoxPlots}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=\textwidth]{Company1_BoxPlots1_NofDevelopers.png}
+  \caption{Total Number of Developers}
+  \label{fig:Cmpny1fig4}
+\end{subfigure}%
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=\textwidth]{Company1_BoxPlots2_NofDefects.png}
+  \caption{Total Number of Defects}
+  \label{fig:Cmpny1fig5}
+\end{subfigure}
+\begin{subfigure}[b]{0.33\textwidth}
+  \includegraphics[width=\textwidth]{Company1_BoxPlots3_NofSizeChangeInLOC.png}
+  \caption{Total File Size Change (in LOC)}
+  \label{fig:Cmpny1fig6}
+\end{subfigure}
+\caption{Company 1: Box plots of different measures for modules in which correlation between EC and Defects detected (Yes) and not detected (No)}
+\label{fig:Cmpny1BoxPlots2}
+\end{figure}
+
+
+\subsection{RQ2: What factors explain why the relationship between evolutionary coupling and software defects is different for different modules? Defect Type Analysis Results} 		
+
+The results of correlation analysis for each defect type are summarised in Table \ref{tab:DefectTypes}. The columns of the table show the Spearman correlation strength ($rho$ values) between two EC measures and defect measures. Rows of the table represent different defect types. In the table, we include only the defect types that have at least one significant correlation result. \textit{Code Implementation} is the top correlated defect type and moderate correlation was observed here. One interpretation is that developers tend to make coding errors while they work on source files which are highly evolutionary coupled and they should take into account more relations with more files when coding these files. For the rest of the defect types in the table, we observed low correlation, although they are significant. Defect types such as \textit{Acceptance Criteria} and \textit{Analysis} can be associated with external evolutionary coupling to other modules and applications. Involvement of more modules and applications may make analysis and defining acceptance test criteria more difficult. We can interpret the correlation with \textit{Test Implementation} type in a similar way to \textit{Code Implementation}. We have checked the defects of \textit{Not An Issue} type with the project members. They explained that this defect type was generally used for deployment problems. Correlation between defects of this defect type and EC may be explained as that deploying highly evolutionary coupled files and modules may be more error-prone due to more dependencies to be considered and deployed together.
+
+%This can increase the cognitive load of developers \cite{COGS:COGS57} and cause coding defects.
+
+For the following defect types, correlation values observed were trivial and are therefore ignored: \textit{Wrong Properties}, \textit{De defect  Value}, \textit{Process Failure}, \textit{Database Upgrade Failure}, \textit{Data Fix Errata}, \textit{Unexpected Functionality}, \textit{Incorrect Config}, \textit{Infrastructure Issues}, \textit{Missing or Incomplete Data Migration}, \textit{Acceptance Criteria Impl}.
+
+For the following defect types, no significant correlation was detected: \textit{Incorrect Environment}, \textit{CRM Bug}, \textit{User Error}, \textit{Database Disconnect-Reconnect Error}.
+
+\begin{table*}[t]
+\caption{Spearman Correlation Analysis Results between Evolutionary Coupling Measures and Different Defect Types (Appendix 9.1 provides more details of these defect types)} 
+\label {tab:DefectTypes} 
+\begin{center}
+\scalebox{0.8}{
+\begin{tabular}{rll}
+  \hline
+    & \\ 
+ 	& NoECFMR vs NoD & NoECF vs NoD  \\  
+ 	& (Spearman Corr.) & (Spearman Corr.) \\  
+  \hline
+    				& \\ 
+Code Implementation  & $\rho$ (rho)=.176**	& $\rho$ (rho)=.182** \\
+	& p=.000 		& p=.000   \\ 
+  					& \\ 		 
+Acceptance Criteria  & $\rho$ (rho)=.111** & $\rho$ (rho)=.113**   \\
+	& p=.000 		& p=.000   \\ 
+  					& \\ 	
+Functionality Not Implemented Yet & $\rho$ (rho)=.088** & $\rho$ (rho)=.091**  \\
+	& p=.000 		& p=.000   \\ 
+  					& \\ 
+Analysis 			& $\rho$ (rho)=.083** & $\rho$ (rho)=.085**  \\
+	& p=.000 		& p=.000   \\ 
+  					& \\ 
+Not An Issue  		& $\rho$ (rho)=.052**	& $\rho$ (rho)=.045** 	 \\
+	& p=.000 		& p=.000   \\ 
+  					& \\ 
+Test Implementation  & $\rho$ (rho)=.060**	& $\rho$ (rho)=.061** \\
+	& p=.000 		& p=.000   \\ 
+  					& \\ 
+%AcceptanceCriteriaImpl & $\rho$ (rho)=.066**	& $\rho$ (rho)=.084** & $\rho$ (rho)=.050**	& $\rho$ (rho)=.053** \\
+%  					& \\ 
+3rd Party System  defect  & $\rho$ (rho)=.047**	& $\rho$ (rho)=.045**	\\
+	& p=.000 		& p=.000   \\ 
+ 					& \\ 
+Bad Data  			& $\rho$ (rho)=.091**	& $\rho$ (rho)=.093**	\\
+	& p=.000 		& p=.000   \\ 
+   \hline
+\multicolumn{3}{ l }{** Correlation is significant at the 0.01 level (2-tailed).} \\ 
+\end{tabular}
+}
+\end{center}
+\end{table*}
+
+
+\begin{comment}
+
+ 	& NoECFMR vs NoD & NoECF vs NoD & NoECFMR vs NoD & NoECF vs NoD  \\  
+ 	& (Pearson Corr.) & (Pearson Corr.) & (Spearman Corr.) & (Spearman Corr.) \\  
+  \hline
+    				& \\ 
+Code Implementation  & $\rho$=.344** & $\rho$=.383**  	& $\rho$=.176**	& $\rho$=.182** \\
+% 					& p=.000 		& p=.000			& p=.000 		& p=.000   \\ 
+  					& \\ 		 
+Acceptance Criteria  & $\rho$=.170** & $\rho$=.195**  	&  $\rho$=.111** & $\rho$=.113**   \\
+  					& \\ 	
+Functionality Not Implemented Yet & $\rho$=.162**	& $\rho$=.189** & $\rho$=.088** & $\rho$=.091**  \\
+  					& \\ 
+Analysis 			& $\rho$=.122**	& $\rho$=.139** 	& $\rho$=.083** & $\rho$=.085**  \\
+  					& \\ 
+Not An Issue  		& $\rho$=.119**	& $\rho$=.114** 	& $\rho$=.052**	& $\rho$=.045** 	 \\
+  					& \\ 
+Test Implementation  & $\rho$=.107**	& $\rho$=.115** 	& $\rho$=.060**	& $\rho$=.061** \\
+  					& \\ 
+%AcceptanceCriteriaImpl & $\rho$=.066**	& $\rho$=.084** & $\rho$=.050**	& $\rho$=.053** \\
+%  					& \\ 
+3rd Party System  defect  & $\rho$=.099**	& $\rho$=.102** & $\rho$=.047**	& $\rho$=.045**	\\
+ 					& \\ 
+Bad Data  			& $\rho$=.127**	& $\rho$=.137** & $\rho$=.091**	& $\rho$=.093**	\\
+
+
+\begin{table*}[t]
+\caption{Spearman and Pearson Correlation Analysis Results between Evolutionary Coupling Measures and Different Sub-Types of Code Implementation} 
+\label {tab:CodeImplSubTypes} 
+\begin{center}
+\scalebox{0.8}{
+\begin{tabular}{rllll}
+  \hline
+    & \\ 
+ 	& NoECFMR vs NoD & NoECF vs NoD & NoECFMR vs NoD & NoECF vs NoD  \\  
+ 	& (Pearson Corr.) & (Pearson Corr.) & (Spearman Corr.) & (Spearman Corr.) \\  
+  \hline
+    				& \\ 
+1. Control Structures  & $\rho$=.085** & $\rho$=.093**  	& $\rho$=.039**	& $\rho$=.040** \\
+% 					& p=.000 		& p=.000			& p=.000 		& p=.000   \\ 
+  					& \\ 		 
+2. Functionality   & $\rho$=.162** & $\rho$=.187**  	&  $\rho$=.110** & $\rho$=.111**   \\
+  					& \\ 	
+3. Data  & $\rho$=.043**	& $\rho$=.054** & $\rho$=.015* & $\rho$=.014*  \\
+  					& \\ 
+4. Checking 	& $\rho$=.124**	& $\rho$=.136** 	& $\rho$=.076** & $\rho$=.078**  \\
+  					& \\ 
+5. Initialisation/assignment  & $\rho$=.046**	& $\rho$=.058** 	& $\rho$=.046**	& $\rho$=.049** \\
+  					& \\ 
+6. Computation/implementation  & $\rho$=.138**	& $\rho$=.150** 	& $\rho$=.075**	& $\rho$=.077** \\
+  					& \\ 
+7. Interfaces/integration & $\rho$=.068**	& $\rho$=.087** & $\rho$=.048**	& $\rho$=.049** \\
+  					& \\ 
+8. Timing/serialisation & $\rho$=.028**	& $\rho$=.033** & $\rho$=.032**	& $\rho$=.027**	\\
+ 					& \\ 
+9. System/sw architecture  & $\rho$=.104**	& $\rho$=.108** & $\rho$=.030**	& $\rho$=.030**	\\
+  					& \\ 	
+10. Tests  & $\rho$=.135** & $\rho$=.153**  	& $\rho$=.094**	& $\rho$=.098** \\
+% 					& p=.000 		& p=.000			& p=.000 		& p=.000   \\ 
+ 					& \\ 
+   \hline
+\multicolumn{5}{ l }{** Correlation is significant at the 0.01 level (2-tailed).} \\ 
+\multicolumn{5}{ l }{* Correlation is significant at the 0.05 level (2-tailed).} \\ 
+
+\end{tabular}
+}
+\end{center}
+\end{table*}
+
+\end{comment}
+
+\section{Discussion}
+%REVIEWER COMMENTS
+% it provides no help for a practitioner who wants to make sense of the body of knowledge. Since results have differed across multiple studies, what should a practitioner do with the latest finding?
+% I would have liked to see more of the intuition for studying Evolutionary Coupling in the first place. Why select this particular metric out of all the ones possible to explore? Does it yield any insights about the likely types of defects in the system or any deeper knowledge about the system?
+% I would have preferred somewhat less statistics and instead more potential explanations and interpretation of the results i.e.
+% what should we learn about seeing this correlation, what should the reader perhaps do differently in future by knowing that?
+% My main concern is that this study may have hidden confounding variables that define causation rather than correlation. One can argue that changing modules that are linked with other modules via control or dataflow will naturally lead to higher density of defects.
+
+Our findings give insights to future researchers and practitioners on
+the effect of evolutionary coupling on  defects.
+
+
+%\vspace{-1.5mm}
+\textbf{(RQ1) What is the relationship between evolutionary coupling and software defects?} 
+
+Our results suggest that there is, in general, a significant positive correlation between EC measures and defects. This finding is consistent with the general opinion that low coupling is an important principle to follow for a high quality software design and that high coupling can be related to defects \cite{briand1999unified} \cite{briand2000exploring} \cite{baldwin2000design}. Fewer interconnections between elements reduce the chance that changes in one element cause problems in other elements. Fewer interconnections between elements is also reported to reduce programmer time \cite{harrold2003software}. It is essential to keep the effect of a change in one element on another element low. However, our study shows that correlation strength between EC and defects varies across modules. Correlation strength had a wide range of values from zero to 0.8. Furthermore, there are also modules in which evolutionary coupling and software defects are not correlated. This is an important finding, since it highlights that the effect of EC is likely to vary depending on the module analysed. It is likely that the context of each module affects the risk that making change will create unanticipated changes within other elements. Some modules carry higher risk than others. Therefore it is important to consider the EC - defect relationship in the context of related modules.
+
+The contradictory findings reported by previous EC studies such as Graves et al. \cite{graves2000predicting} and Knab et al. \cite{knab2006predicting} may be partially explained in terms of the different systems and modules used in these studies. We have shown that evolutionary coupling has different effects on defects across different modules, because EC seems to manifest differently in different modules. The characteristics of the modules in individual systems must be accounted for in future studies. This finding also provides practitioners with valuable information on detecting defects and problematic code hotspots. However, as for all other code measures in relation to defects, EC does not contribute to defects equally for every module in a system, so EC use is not consistently helpful. We recommend that practitioners use EC for assessing the quality of their software design but also in conjunction with other module characteristics. That way practitioners will get the best of both worlds.
+
+%Such results allow practitioners and future researchers to direct their effort towards identifying and prioritising refactoring smells most likely to actually be related to  defect s. 
+
+
+%\vspace{-1.5mm}
+\textbf{(RQ2) What factors explain why the relationship between evolutionary coupling and software defects is different for different modules?}
+
+We also tried to explain possible reasons for the different effects of evolutionary coupling on software defects. We considered this issue from two perspectives: module characteristics and defect types. We found that evolutionary coupling was less likely to have an effect on software defects for modules with fewer files and where fewer developers contributed. This may be explained by fewer defects being caused by evolutionary coupling in relatively small modules. Potentially, there are fewer interconnections between elements in a small module. Let $n$ denote the number of files in a module. The potential number of interconnections in a module is calculated as $ \dfrac{n*(n-1)} {2}$ = $ \dfrac{n^2-n} {2}$. Interconnections between files in a module can grow quadratically with the number of files. The more inter-related the files are, the more difficult these modules are to understand, change, and correct and thus the more complex the resulting software system. This may eventually lead to defects. An alternative explanation at least for the non-density models would be that such files typically have fewer defects. % Results suggest that practitioners should aim to keep module sizes small. 
+
+We also recommend that practitioners add EC measures to their metric suite for software design evaluation. We recommend that researchers report process and size metrics of modules in their EC studies to account for the possible effect of context in their results. Furthermore, we found that EC may be more related to some defect types such as \textit{Code Implementation}, \textit{Acceptance Criteria}, \textit{Test Implementation} and less related to others such as \textit{Unexpected Functionality}, \textit{Infrastructure Issues}, \textit{Missing or Incomplete Data Migration}, \textit{Incorrect Environment}, \textit{User Error}. 
+
+We believe that defect types may be used to explain the contradictory findings reported by previous EC studies in the literature. The different systems and modules used in these studies have different defect types and evolutionary coupling has different relationships with different defect types. It is more likely that high EC will cause \textit{Code Implementation} and \textit{Test Implementation} defects, because a high number of changes must be made to related parts of the system when code with high evolutionary coupling is changed. The locations of these related changes may be scattered within the application or even across applications in a software ecosystem; making related changes across these locations is likely to be challenging and this can increase the cognitive load of developers \cite{COGS:COGS57}. Moreover, developers may miss some locations which should be co-changed and this may cause unforeseen code and test implementation problems. On the other hand, EC is unlikely to contribute to defects whose root cause is user error or infrastructure issues. If a module has defects caused mostly by user error or infrastructure issues, EC measures will not be useful for detecting defects and hotspots.
+
+%Systems are developed for different applications in different environments
+%by different developers often using different coding styles. Consequently, the
+%code produced will have different characteristics. For example, in the three systems
+%that we studied, Apache Commons developers used very few Message Chains. Consequently
+%it is not surprising that despite Message Chains being significantly related to
+% defect s in Eclipse and ArgoUML, they were not related to  defect s in Apache Commons.
+%It is important that future work defines the different manifestations of the same smell
+%and identifies those manifestations that affect  defect s.
+
+%More detailed analysis needs to be done in order to conclude that evolutionary couplings cause software defects.
+
+\section{Threats to Validity}
+
+\subsection{Construct Validity}
+%\cite{yin2009case}
+
+Threats to construct validity relate to whether we measure what we intend to measure. When calculating EC measures, there are two ways in which to group file revisions in the source code repository: Modification Request-based and Transaction-based. EC measures calculated on a transaction basis for the system under study do not reflect the coupling relations between files; therefore, we preferred a Modification Request-based approach to their calculation. In contrast to open source, systems previously analysed, in this study we had good defect linking. That enabled us to use a Modification Request-based approach. 
+
+Another threat is the potential overlap in knowledge of EC with existing process metrics. To mitigate this threat, we applied multivariate regression and multicollinearity analysis to understand the overlap and the unique knowledge embedded in EC measures.
+
+The EC metrics used in our study do not consider the age and temporal aspects of EC. Evolutionary couplings that are temporary or no longer valid due to refactorings or restructurings could not be detected in our study. This is a limitation of the study.
+
+We assume that any change made to source code is committed to code repositories. The software processes in both companies place check points (at compilation, moving to test/production) to guarantee this assumption. Practitioners should be careful in using EC measures, since they may not be reliable for some modules if version control systems (VCSs) are not used by their developers (or there is a low utilisation of VCS). EC measures make sense if the VCS is used long enough and consistently. In this study, some modules had low utilisation for VCS and this may be an indication of problems with VCS adaptation for some projects in the company. VCS was introduced to some projects at Company 1 a few years ago. As a consequence, we recommend excluding these types of modules or systems when calculating EC measures and using EC measures in defect models.
+
+All the files committed in a particular commit operation might not be logically coupled. This threat is mitigated by ignoring commit transactions having more than 30 files. Therefore large transactions, which may possibly include files from more than one MRs (e.g., the merge of a branch), are not used to calculate EC. Furthermore, we also performed a manual analysis of randomly chosen commits and MRs and checked the validity of this assumption. When huge commit transactions are removed, there are very few exceptions to this assumption. Another point is that there are differences between industrial and open source software development regarding this assumption. Companies generally place controls on MRs in the application life cycle  (e.g., mandatory MR numbers during check-in, allowing only files associated with an MR to move to the production, etc.) and companies usually rigorously follow such conventions, unlike many open source projects.
+
+
+\subsection{Internal Validity}
+
+In this study, we used configuration items from the Configuration Management Database (CMDB) (for Company 1 only) attached to problem records and related requests (move to production, code review, move to test, etc.) with which to match defects to source code files. Two assumptions were made at this stage:
+
+\vspace{-1.5mm} 
+\begin{enumerate}
+\item Configuration items defined at CMDB correspond to source files changed in the scope of the resolution of a defect.
+\item Configuration items of the source files changed in the scope of the resolution of a defect are linked to the problem record of the defect.
+\end{enumerate}
+
+The validity of these two assumptions can be guaranteed for certain record types (move to production, code review), but in general these cannot be guaranteed, that for each defect, all related source files are detected.
+
+Another assumption is that developers commit source files changed in the scope of the same MR to the same package in the code repository. This assumption is used in the calculation of evolutionary coupling measures. We rely on the data collected from versioning systems and any project which is not managed in the versioning system (or any file which is not committed to versioning systems) are not considered in our study.
+
+The measures and defect types chosen for answering RQ2 are not exhaustive and do not cover all characteristics of a module and all defect types which can exist. An exhaustive examination may
+have revealed other factors that have a greater effect on  defects and which may be confounding our results. In our study, we investigated file size (LOC) as a possible confounding factor. We observed that code size correlated with number of  defects in some modules. Defect density however had either no significant correlation or only minor negative correlation. Using defect density in our study mitigates the risk of size as a possible confounding factor. We are planning future investigations to explore the effect size of a large number of factors related to defects.
+
+% correlation between EC measures and defect measures
+%, but these results do not directly show a cause-and-effect relationship
+%
+%Fewer developers can be a result of less effort needed for small modules cause and effect relationship.
+
+
+%Threats to internal validity concern rival hypotheses that can explain our findings. We assume that mailing list popularity is an indicator of community building. However, it might just be an indicator of  defect -proneness or complexity of a package.
+
+\subsection{External Validity}
+
+External validity relates to the generalisation of our study results. We only studied two industrial software systems. These systems may not be representative of the way developers develop systems more generally. We mitigate this risk by choosing two systems from different domains and with different technologies. In future work, we would like to extend this study by including more commercial systems and projects. 
+
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.5in]{NET_IDE_Projects.PNG}
+%\caption{.NET SubEcosystem - IDE Statistics}
+%\label{netidesprojects}	
+%\end{figure}
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.5in]{NET_IDE_Checkins.PNG}
+%\caption{.NET SubEcosystem - IDE Statistics}
+%\label{netidescheckins}	
+%\end{figure}
+
+
+
+\section{Conclusions}
+
+In this paper, we presented a study on the relationship between evolutionary coupling (EC) and software defects in two large industrial software systems. We reported a positive correlation between evolutionary coupling and defect measures in the software maintenance / evolution phase of systems from two different companies. Our results indicated low, moderate and high level correlation, with varied correlation strength across modules. Our regression analysis results indicated that evolutionary coupling measures could be useful for explaining defects.  
+
+% Logistic regression results revealed better results for explaining defects compared to a linear regression based model. This result suggests that the relation between EC and defects may be understood better with a binary model instead of a linear model. 
+
+The box plots drawn for each module separately showed the potential of EC measures to distinguish  defective and non-defective files. We also observed that the company using practices such as agile and TDD had relatively fewer modules with high EC-defect correlation values. However, this finding needs to be further investigated on more companies for generalisable conclusions.
+
+We also tried to understand the reasons for variation of the observed effect of evolutionary coupling on software defects for different modules. We found that modules which were small in size in terms of file and developer numbers, tended to be less correlated with EC. Interconnections between files in a module can grow quadratically with the number of files. The more inter-related the files are, the more difficult these modules are to understand, change, and correct and thus the more complex the resulting software system. This complexity may eventually lead to defects and this may be one of the reasons for variation across modules. Furthermore, we observed that evolutionary coupling measures showed higher correlation with some types of defects (based on root causes) such as code implementation, acceptance criteria and analysis problems. The dispersion of these defect types could be another reason for these varying effects. Different modules have different defect types and evolutionary coupling has different relationships with different defect types. %It is more likely that high EC will cause code and test implementation defects, because of the ripple effects due to high number of inter-related files. 
+
+Module characteristics and defect types may also explain why different results are reported by different studies in the literature. Different applications or modules analysed may have different characteristics and defect types. We recommend that researchers report characteristics and defect types of modules in their EC studies to account for the possible effect of the context in their results. We also recommend that practitioners add EC measures to their metric suite for software design evaluation and consider the characteristics and defect types of their modules in their evaluation. 
+
+\section{Acknowledgements}
+We would like to thank the Scientific and Technological Research Council of Turkey (TUBITAK) for its financial support (B.14.2.TBT.0.06.01-214-115535). This research was supported in part by Bogazici University Research Fund (7223) and the Turkish Academy of Sciences and by Engineering and Physical Sciences Research Council (EPSRC) of the UK (EP/L011751/1). Dr. Bener and Dr. Caglayan are supported by NSERC Discovery Grant number 402003-2012. We would also like to thank Thomas Shippey for his contribution on data cleaning and analysis.
+
+% We would like to thank Garanti Bank and Sky UK Limited for their collaboration and contribution. 
+
+%\end{document}  % This is where a 'short' article might terminate
+
+
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+%
+%APPENDICES are optional
+%\balancecolumns
+
+\bibliographystyle{abbrv}
+\bibliography{sigproc}
+
+%\clearpage
+%\newpage
+%\vspace{10mm} 
+
+\newpage
+\section{Appendix}
+
+\subsection{Defect Root Causes List and Details}
+
+\begin{table*}[h]
+\caption{Defect Type List} 
+\label {tab:DefectTypeList} 
+%\begin{adjustbox}{width=1\textwidth}
+\begin{center}
+\scalebox{0.9}{
+\begin{tabular}{lll}
+  \hline
+    & \\ 
+ 	& Defect Root Causes & Descriptions \\ 
+  \hline
+    				& \\ 
+1  & Bad Data &   defects caused by invalid / unexpected data at persistence storage (databases)  \\
+2  & Wrong Properties &  defects caused by properties set incorrectly for the application like timeout, \\&& thread pool size, etc.  \\
+3  & De defect  Value  &  defects caused by the de defect  values of the deployed application \\
+4  & Process Failure &  defects caused by problems in software processes such as insufficient \\&& communication  between teams \\
+5  & 3rd Party System  defect  &  defects caused by problems occurred at other systems running in the \\&& same environment   \\
+6  & Database Upgrade Failure &  defects caused by incomplete/unsuccessful database schema updates / migrations   \\
+7  & Data Fix Errata &  defects caused by incorrect scripts that are added to fix the data at persistence \\&& storage as part of another  defect \\
+8  & CRM  defect &  defects caused by problems at Customer Relationship Management (CRM) \\&& system \\
+9  & Functionality Not Implemented Yet &  defects caused by API methods or functionalities which are not implemented yet \\&& or not deployed with the existing software version \\
+10  & Unexpected Functionality &  defects experienced by users as an unexpected functionality such as response \\&& failures and performance problems  \\
+11  & Incorrect Environment &  defects caused by non-satisfied prerequisites at the running environment of the \\&& application \\
+12 & Acceptance Criteria Impl &  defects caused by missing / incomplete / incorrect automated acceptance tests  \\
+13  & Database disconnect/reconnect error &  defects caused by database (persistence storage) connection problems    \\
+14  & Analysis &  defects caused by missing / incomplete/ incorrect requirements / user stories \\
+15  & Incorrect Config &  defects caused by incorrect application configuration such as versions of \\&& feeds / services pointed  \\
+16  & Infrastructure Issues &  defects caused by application infrastructure problems such as exhausted server \\&& swap memory or  incorrect load balancing \\
+17  & Acceptance Criteria &  defects caused by missing / incomplete / incorrect acceptance criteria \\
+18  & Missing or incomplete data migration &  defect s caused by incomplete / missing data migrations affecting a specific \\&& environment (test, qa, etc.)  \\
+19  & User Error &  defects or unexpected behaviour due to a invalid usage of the application \\
+20  & Not An Issue &   defects which are not interpreted as  defects (not supported scenario, no longer \\&& required behaviour, already fixed, etc.) \\
+21  & Test Implementation &  defects caused by missing / incomplete / incorrect automated (unit / integration) \\&& tests \\
+22  & Code Implementation &  defects caused by the defects inserted during implementation of new features \\&& or  defect fixing \\
+
+   \hline
+\end{tabular}
+}
+%\end{adjustbox}
+\end{center}
+\end{table*}
+
+\newpage
+\subsection{Box Plots}
+
+\begin{figure*}[h]
+\centering
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[scale=0.39]{boxplot1.png}
+  \caption{Module 1}
+  \label{fig:sfig1}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[scale=0.39]{boxplot2.png}
+  \caption{Module 2}
+  \label{fig:sfig2}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[scale=0.39]{boxplot3.png}
+  \caption{Module 3}
+  \label{fig:sfig3}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[scale=0.39]{boxplot11.png}
+  \caption{Module 11}
+  \label{fig:sfig4}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[scale=0.39]{boxplot5.png}
+  \caption{Module 20}
+  \label{fig:sfig5}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[scale=0.39]{boxplot23.png}
+  \caption{Module 23}
+  \label{fig:sfig6}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[scale=0.39]{boxplot7.png}
+    \caption{Module 38}
+  \label{fig:sfig7}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[scale=0.39]{boxplot8.png}
+  \caption{Module 55}
+  \label{fig:sfig8}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[scale=0.39]{boxplot64.png}
+  \caption{Module 64}
+  \label{fig:sfig9}
+\end{subfigure}
+\caption{Box plots of Evolutionary Coupling Measures for Selected Modules - Files with Defects vs. Files without Defects (1: represents files with defects, 2: represents files without any defects). Y-axis of box plots are removed to prevent revealing sensitive company data}
+\label{boxplots}
+\end{figure*}
+
+\newpage
+\subsection{Correlations Analysis of the Main Variables}
+
+
+\begin{table*}[ht]
+\caption{Spearman Correlation Results of the Process Metrics} 
+\label {tab:Correlations} 
+\begin{center}
+\scalebox{0.9}{
+\begin{tabular}{rllll}
+  \hline
+ 					& NoECF 		& NoECFMR 	 & NoD 			& NoCommits    \\  
+  \hline
+    					& \\ 
+NoECFMR 			& $\rho$=.99 &  &  &    \\
+ 					& p=.000 &  &  &   \\ 
+  					& \\ 		 
+NoD					& $\rho$=.28 & $\rho$=.28 &  &    \\
+ 					& p=.000 		& p=.000  &  	&    \\ 
+  					& \\ 
+NoCommits			& $\rho$=0.57 & $\rho$=0.57 & $\rho$=.24 &  \\
+ 					& p=.00 		& p=.00 	& p=.00  	 &  \\
+  					& \\ 
+NoDevs				& $\rho$=0.57 	& $\rho$=0.57 	& $\rho$=.24	& $\rho$=0.99 	 	\\
+ 					& p=.00 		& p=.00 		& p=.000 		& p=.00 	 \\
+  					& \\ 
+   \hline
+\end{tabular}
+}
+\end{center}
+\end{table*}
+
+
+\subsection{Histogram for Correlation between NoECFMR measure and Number of  defects}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Company1_histogram_rho_for_ECSum1.png}
+\caption{Company 1: Histogram of Spearman $rho$ values for Correlation between EC (NoECFMR measure) and Number of defects}
+\label{Company1_histogram_rho_noecfmr}	
+\end{figure}
+
+
+\newpage
+
+
+\subsection{Module Size vs. rho values of EC-Defect Correlation}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=5.7in]{rho_vs_size.PNG}
+\caption{Module Size vs. rho values of EC-Defect Correlation}
+\label{size_vs_correlation}	
+\end{figure*}
+
+\begin{table*}[ht]
+\caption{Spearman Correlation Results} 
+\label {tab:size_vs_correlation} 
+\begin{center}
+\scalebox{0.9}{
+\begin{tabular}{rl}
+  \hline
+ 					& LOC   \\  
+  \hline
+rho 			& $\rho$=-0.218** \\
+ 					& p=.005  \\ 
+  					& \\ 		 
+   \hline
+\end{tabular}
+}
+\end{center}
+\end{table*}
+
+
+
+
+\end{document}
